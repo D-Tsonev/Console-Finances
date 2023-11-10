@@ -91,4 +91,10 @@ numberOfMonths = finances.length
 
 console.log(numberOfMonths)
 
+let totalAmount = 0 
 
+for (let i = 0; i < finances.length; i++) {
+  totalAmount += finances[i][1];
+}
+
+console.log(totalAmount)
