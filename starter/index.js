@@ -87,14 +87,56 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+
+// total length of array 
+
 numberOfMonths = finances.length
 
 console.log(numberOfMonths)
 
-let totalAmount = 0 
 
-for (let i = 0; i < finances.length; i++) {
+// sum of all values for all months 
+var totalAmount = 0 
+
+for (var i = 0; i < finances.length; i++) {
   totalAmount += finances[i][1];
 }
-
 console.log(totalAmount)
+
+
+// calculate the changes
+
+var changes = 0 
+var  totalChanges= 0
+
+for (let i = 1; i < finances.length; i++){
+  changes = (finances[i][1] - finances[i-1][1]);
+  totalChanges += changes
+}
+
+// total amount changes
+console.log(totalChanges)
+
+
+averageChanges = (totalChanges/(numberOfMonths-1)).toFixed(2)
+
+console.log(averageChanges)
+
+
+
+
+
+// let myNums = [
+//   ['Jan-2010', 10],['Feb-2010', 5],['Mar-2010', 3],['Apr-2010', -1],['May-2010', -1]]
+
+// let sum = 0 
+
+// for (let i = 1; i < myNums.length; i++) {
+  
+//   console.log(myNums[i][1],'numbers : 5,3,3,-1,-1')
+
+  
+// }
+
+// console.log(sum)
+
