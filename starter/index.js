@@ -108,13 +108,13 @@ var changes = 0
 var totalChanges= 0
 var greatestIncrease = 0
 var greatestDecrease = 0
-var changesArray = []
+// var changesArray = []
 var monthGreatestIncrease = '';
 var monthGreatestDecrease = '';;
 
 for (let i = 1; i < finances.length; i++) {
   changes = finances[i][1] - finances[i - 1][1];
-  changesArray.push(changes);
+  // changesArray.push(changes);
   totalChanges += changes;
 
   if (changes > greatestIncrease) {
@@ -131,7 +131,7 @@ for (let i = 1; i < finances.length; i++) {
 // console.log("total changes ->",totalChanges)
 // console.log("changes ->",changes)
 // console.log("greatest increase ->", greatestIncrease,monthGreatestIncrease)
-// console.log("greatest increase ->", greatestDecrease,monthGreatestIncrease)
+// console.log("greatest decrease ->", greatestDecrease,monthGreatestDecrease)
 
 // total amount changes
 
