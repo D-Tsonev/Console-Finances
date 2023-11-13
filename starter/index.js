@@ -88,55 +88,64 @@ var finances = [
 ];
 
 
-// total length of array 
-
+// total number of months 
 numberOfMonths = finances.length
 
-console.log(numberOfMonths)
+// console.log("number of months->",numberOfMonths)
 
-
-// sum of all values for all months 
+// total amount of Profit/Losses over the entire period
 var totalAmount = 0 
 
 for (var i = 0; i < finances.length; i++) {
   totalAmount += finances[i][1];
 }
-console.log(totalAmount)
+// console.log("total amount -> " ,totalAmount)
 
 
-// calculate the changes
+// calculate the changes, greatest increase and decrease
 
 var changes = 0 
-var  totalChanges= 0
+var totalChanges= 0
+var greatestIncrease = 0
+var greatestDecrease = 0
+var changesArray = []
+var monthGreatestIncrease = '';
+var monthGreatestDecrease = '';;
 
-for (let i = 1; i < finances.length; i++){
-  changes = (finances[i][1] - finances[i-1][1]);
-  totalChanges += changes
-}
+for (let i = 1; i < finances.length; i++) {
+  changes = finances[i][1] - finances[i - 1][1];
+  changesArray.push(changes);
+  totalChanges += changes;
+
+  if (changes > greatestIncrease) {
+    greatestIncrease = changes;
+    monthGreatestIncrease = finances[i][0];
+  }
+
+  if (changes < greatestDecrease) {
+    greatestDecrease = changes;
+    monthGreatestDecrease = finances[i][0];
+  }}
+
+
+// console.log("total changes ->",totalChanges)
+// console.log("changes ->",changes)
+// console.log("greatest increase ->", greatestIncrease,monthGreatestIncrease)
+// console.log("greatest increase ->", greatestDecrease,monthGreatestIncrease)
 
 // total amount changes
-console.log(totalChanges)
-
 
 averageChanges = (totalChanges/(numberOfMonths-1)).toFixed(2)
-
-console.log(averageChanges)
-
+// console.log("average changes ->",averageChanges)
 
 
+console.log
+(`Financial Analysis\n
+----------------\n
+Total Months: ${numberOfMonths}\n
+Total: $${totalAmount}\n
+Average Change: ${averageChanges}\n
+Greatest Increase in Profits/Losses: ${monthGreatestIncrease} ($${greatestIncrease})\n
+Greatest Decrease in Profits/Losses: ${monthGreatestDecrease} ($${greatestDecrease})`)
 
-
-// let myNums = [
-//   ['Jan-2010', 10],['Feb-2010', 5],['Mar-2010', 3],['Apr-2010', -1],['May-2010', -1]]
-
-// let sum = 0 
-
-// for (let i = 1; i < myNums.length; i++) {
-  
-//   console.log(myNums[i][1],'numbers : 5,3,3,-1,-1')
-
-  
-// }
-
-// console.log(sum)
 
